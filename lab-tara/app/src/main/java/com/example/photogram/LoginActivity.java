@@ -1,6 +1,8 @@
 package com.example.photogram;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -67,6 +69,15 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @OnClick(R.id.proceedToFeed)
+    public void proceedToFeed() {
+        FirebaseUser user = mAuth.getCurrentUser();
+
+        Intent intent = new Intent(this, FeedActivity.class);
+        intent.putExtra("uid", user.getUid());
+        startActivity(intent);
     }
 
     @OnClick(R.id.logout)
