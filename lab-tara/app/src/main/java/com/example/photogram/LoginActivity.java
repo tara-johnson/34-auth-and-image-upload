@@ -2,7 +2,6 @@ package com.example.photogram;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -90,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     Log.d(TAG, "createUserWithEmail:success");
                     FirebaseUser user = mAuth.getCurrentUser();
-                    updateUI(user);
+                    proceedToFeed();
                 } else {
                     Log.w(TAG, "createUserWithEmail:failure", task.getException());
                     Toast.makeText(LoginActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
@@ -100,14 +99,16 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-
-
     @OnClick(R.id.proceedToFeed)
     public void proceedToFeed() {
         FirebaseUser user = mAuth.getCurrentUser();
 
         Intent intent = new Intent(this, FeedActivity.class);
         intent.putExtra("uid", user.getUid());
+
+        if (user.getEmail() != null) {
+            intent.putExtra("email", user.getUid());
+        }
         startActivity(intent);
     }
 

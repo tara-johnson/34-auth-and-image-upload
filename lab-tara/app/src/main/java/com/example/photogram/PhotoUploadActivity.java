@@ -103,7 +103,9 @@ public class PhotoUploadActivity extends AppCompatActivity {
         DatabaseReference newPhoto = myRef.push();
         newPhoto.child("uid").setValue(uid);
         newPhoto.child("description").setValue(description);
-        newPhoto.child("imageUrl").setValue(storageUrl);
+        newPhoto.child("imageUrl").setValue(storageUrl.toString());
+
+        populateFeed();
     }
 
     public void dispatchTakePictureIntent() {
@@ -175,5 +177,10 @@ public class PhotoUploadActivity extends AppCompatActivity {
         Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
         mImagePreview.setImageBitmap(bitmap);
         mBitmap = bitmap;
+    }
+
+    public void populateFeed() {
+        Intent intent = new Intent(this, FeedActivity.class);
+        startActivity(intent);
     }
 }
