@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">PhotoGram</string>
+    <string name="login_as_guest">Login as guest</string>
+    <string name="login_with_email">Login with email</string>
+    <string name="logged_in_as">Logged in as: </string>
+    <string name="email_address">Email address</string>
+    <string name="password">Password</string>
+    <string name="logout">Logout</string>
+    <string name="proceed_to_feed">Proceed to Feed</string>
+    <string name="take_picture">Take picture</string>
+    <string name="post_photo">Post photo</string>
+    <string name="add_description">Add description</string>
+    <color name="lightGrey">#f6f6f6</color>
+</resources>
