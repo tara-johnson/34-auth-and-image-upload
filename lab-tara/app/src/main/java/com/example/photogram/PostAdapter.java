@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder> {
@@ -32,6 +33,7 @@ class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder> {
 
     public void setPosts(List<Post> posts) {
         this.mPosts = posts;
+        Collections.reverse(posts);
         this.notifyDataSetChanged();
     }
 
